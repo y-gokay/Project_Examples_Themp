@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scrollbar utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Dark mode transition */
+html {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Dark mode SweetAlert2 overrides */
+html.dark .swal2-popup {
+  background-color: #1f2937 !important;
+  color: #f3f4f6 !important;
+}
+
+html.dark .swal2-title {
+  color: #f9fafb !important;
+}
+
+html.dark .swal2-html-container {
+  color: #d1d5db !important;
+}
+
+/* SweetAlert2 — İptal (cancel) metni dark modda okunaklı beyaz */
+html.dark .swal2-actions button.swal2-cancel,
+html.dark .swal2-actions button.swal2-cancel.swal2-styled,
+html.dark button.swal2-cancel.swal2-cancel-custom {
+  color: #ffffff !important;
+}
+
+/* SweetAlert2 Button Styles */
+.swal2-confirm,
+.swal2-confirm-custom {
+  background-color: #9333ea !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.625rem 1.5rem !important;
+  font-weight: 600 !important;
+  border-radius: 0.5rem !important;
+  transition: all 0.2s !important;
+}
+
+.swal2-confirm:hover,
+.swal2-confirm-custom:hover {
+  background-color: #7e22ce !important;
+  color: white !important;
+}
+
+.swal2-confirm:focus,
+.swal2-confirm-custom:focus {
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.3) !important;
+}
+
+.swal2-cancel,
+.swal2-cancel-custom {
+  background-color: #6b7280 !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.625rem 1.5rem !important;
+  font-weight: 600 !important;
+  border-radius: 0.5rem !important;
+  transition: all 0.2s !important;
+}
+
+.swal2-cancel:hover,
+.swal2-cancel-custom:hover {
+  background-color: #4b5563 !important;
+  color: white !important;
+}
+
+.swal2-cancel:focus,
+.swal2-cancel-custom:focus {
+  box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.3) !important;
+}
+
+/* Delete confirm button (red) */
+.swal2-confirm.swal2-confirm[style*="background-color: rgb(220, 38, 38)"] {
+  background-color: #dc2626 !important;
+  color: white !important;
+}
+
+.swal2-confirm.swal2-confirm[style*="background-color: rgb(220, 38, 38)"]:hover {
+  background-color: #b91c1c !important;
+  color: white !important;
+}
+
+/* TipTap / API’den gelen HTML — dark modda gövde metni (inline siyah renk dahil) */
+html.dark .rich-html-content {
+  color: #e5e7eb;
+}
+
+html.dark .rich-html-content p,
+html.dark .rich-html-content li,
+html.dark .rich-html-content ul,
+html.dark .rich-html-content ol,
+html.dark .rich-html-content h1,
+html.dark .rich-html-content h2,
+html.dark .rich-html-content h3,
+html.dark .rich-html-content h4,
+html.dark .rich-html-content blockquote,
+html.dark .rich-html-content div,
+html.dark .rich-html-content span,
+html.dark .rich-html-content strong {
+  color: inherit;
+}
+
+html.dark .rich-html-content [style*="color"] {
+  color: #e5e7eb !important;
+}
+
+html.dark .rich-html-content a,
+html.dark .rich-html-content a[style*="color"] {
+  color: #93c5fd !important;
+}
+
+/* Güncelleme talebi — eski/yeni kırmızı-yeşil vurgu + içerik */
+html.dark .rich-html-content.rich-html-content--diff-red {
+  color: #fca5a5;
+}
+
+html.dark .rich-html-content.rich-html-content--diff-red [style*="color"] {
+  color: #fca5a5 !important;
+}
+
+html.dark .rich-html-content.rich-html-content--diff-green {
+  color: #86efac;
+}
+
+html.dark .rich-html-content.rich-html-content--diff-green [style*="color"] {
+  color: #86efac !important;
+}

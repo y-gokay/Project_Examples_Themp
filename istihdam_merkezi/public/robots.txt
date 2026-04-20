@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+
+# Varsayılan olarak tüm sayfalar taranabilir.
+# Canlı ortamda domain belli olduğunda aşağıdaki satırı gerçek domain ile güncelleyin:
+Sitemap: https://atim.atakum.bel.tr/sitemap.xml
+

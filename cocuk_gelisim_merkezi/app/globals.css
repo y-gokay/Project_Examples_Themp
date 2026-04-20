@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Joyful & Modern Palette - Updated for Harmony */
+  --background: oklch(0.98 0.01 250);
+  --foreground: oklch(0.2 0.04 255);
+
+  /* Card & Surface */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.04 255);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.04 255);
+
+  /* Brand Colors */
+  --primary: oklch(0.55 0.18 255); /* Daha canlı ve güvenli Mavi */
+  --primary-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.75 0.16 55); /* Daha sıcak ve belirgin Turuncu */
+  --secondary-foreground: oklch(0.99 0 0);
+
+  --muted: oklch(0.96 0.02 250);
+  --muted-foreground: oklch(0.5 0.05 250);
+
+  --accent: oklch(0.8 0.14 190); /* Turkuaz/Mint - Pembe yerine daha modern */
+  --accent-foreground: oklch(0.2 0.08 190);
+
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.92 0.02 250);
+  --input: oklch(0.92 0.02 250);
+  --ring: oklch(0.55 0.18 255);
+
+  --radius: 1.5rem;
+}
+
+.dark {
+  --background: oklch(0.12 0.04 255);
+  --foreground: oklch(0.98 0.01 250);
+
+  --card: oklch(0.15 0.04 255);
+  --card-foreground: oklch(0.98 0.01 250);
+
+  --popover: oklch(0.15 0.04 255);
+  --popover-foreground: oklch(0.98 0.01 250);
+
+  --primary: oklch(0.65 0.16 255);
+  --primary-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.7 0.14 55);
+  --secondary-foreground: oklch(0.99 0 0);
+
+  --muted: oklch(0.2 0.04 255);
+  --muted-foreground: oklch(0.7 0.05 255);
+
+  --accent: oklch(0.75 0.12 190);
+  --accent-foreground: oklch(0.98 0.01 250);
+
+  --destructive: oklch(0.5 0.18 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.25 0.04 255);
+  --input: oklch(0.25 0.04 255);
+  --ring: oklch(0.65 0.16 255);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 16px);
+  --radius-3xl: calc(var(--radius) + 24px);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Dropdown/overlay açılınca scrollbar değişiminden doğan kaymayı engeller */
+    scrollbar-gutter: stable;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Dropdown açılınca scrollbar kaymasını engellemek için - hem html hem body'de olmalı */
+    scrollbar-gutter: stable;
+    /* Hero section gibi mavi tonlu gradient arka plan - sağ üstteki mavinin devamı */
+    background-image: linear-gradient(
+        to bottom,
+        rgb(239 246 255 / 0.4) 0%,
+        rgb(255 255 255) 100%
+      ),
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+      radial-gradient(
+        at 100% 100%,
+        rgba(251, 191, 36, 0.12) 0px,
+        transparent 50%
+      );
+    background-attachment: fixed;
+  }
+
+  /* Radix UI Select açıldığında body'ye overflow:hidden uygulandığında scrollbar genişliğini koru */
+  body[style*="overflow: hidden"],
+  body[style*="overflow:hidden"] {
+    padding-right: var(--scrollbar-width, 0px) !important;
+  }
+
+  /* Scrollbar genişliğini hesaplamak için fallback */
+  @supports not (scrollbar-gutter: stable) {
+    body {
+      padding-right: calc(100vw - 100%);
+    }
+  }
+
+  .dark body {
+    background-image: linear-gradient(
+        to bottom,
+        rgb(30 58 138 / 0.2) 0%,
+        var(--background) 100%
+      ),
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+      radial-gradient(
+        at 100% 100%,
+        rgba(251, 191, 36, 0.08) 0px,
+        transparent 50%
+      );
+  }
+}
+
+@layer utilities {
+  .floating-nav {
+    @apply fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl rounded-full px-2 py-2 transition-all duration-300;
+  }
+
+  .bento-card {
+    @apply bg-card rounded-3xl border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden;
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-primary via-purple-500 to-pink-500;
+  }
+
+  .blob-shape {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+
+  /* Performance Optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  /* GPU Acceleration for smoother animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Belirli konteynerlerde scrollbar tamamen gizlemek için */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE ve Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}

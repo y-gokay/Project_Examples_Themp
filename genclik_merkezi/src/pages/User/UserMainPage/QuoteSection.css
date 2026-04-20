@@ -1,0 +1,106 @@
+.quote-section {
+    padding: 3.5rem 2rem 4rem; /* Üst padding hafif azaltıldı */
+    background: #fff;
+    margin-top: 0; /* HeroSection ile aradaki boşluk kaldırıldı */
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.quote-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.quote-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.quote-icon {
+    font-size: 3rem;
+    color: var(--accent-color, #ca3a3a);
+    opacity: 0.2;
+}
+
+.quote-text {
+    font-family: var(--font-heading); /* Or a serif font for quotes */
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-primary);
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+.quote-author {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    border-left: 4px solid var(--accent-color, #ca3a3a);
+    padding-left: 1rem;
+}
+
+.author-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.author-title {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.quote-image-wrapper {
+    flex: 0 0 400px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+    transition: transform 0.3s ease;
+}
+
+.quote-image:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 900px) {
+    .quote-container {
+        flex-direction: column-reverse; /* Text on top on mobile? Or image on top? flexible */
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .quote-author {
+        align-items: center;
+        border-left: none;
+        padding-left: 0;
+        border-top: 3px solid var(--accent-color, #ca3a3a);
+        padding-top: 1rem;
+    }
+
+    .quote-image-wrapper {
+        flex: 0 0 300px;
+        height: 300px;
+        width: 100%;
+    }
+    
+    .quote-text {
+        font-size: 1.4rem;
+    }
+}

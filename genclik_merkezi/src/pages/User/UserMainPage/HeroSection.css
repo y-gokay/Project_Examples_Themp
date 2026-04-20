@@ -1,0 +1,410 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 550px; /* Reduced height for visibility of next section */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0 0; /* Alt boşluğu kaldırıldı, QuoteSection ile yapışık */
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.hero-text-content {
+  flex: 1;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(26, 26, 26, 0.05);
+  color: var(--primary-color);
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  font-weight: 800;
+}
+
+.highlight-text {
+  color: var(--accent-color, #ca3a3a); /* Fallback if variable not set */
+  position: relative;
+}
+
+.highlight-text::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: rgba(202, 58, 58, 0.1);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.btn-hero-primary {
+  padding: 0.9rem 2rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn-hero-secondary {
+  padding: 0.9rem 2rem;
+  background: #fff;
+  color: var(--primary-color);
+  border: 1px solid #ddd;
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-hero-secondary:hover {
+  background: #f8f9fa;
+  border-color: #ccc;
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Visual Side */
+.hero-visual {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  gap: 1.5rem;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 500px; /* Kareye yakın format için genişlik */
+  height: 500px; /* Kareye yakın format için yükseklik */
+  margin-right: 20px;
+  background-color: transparent;
+  padding: 10px; /* Gölgeli arka plan çerçevesi için iç boşluk */
+}
+
+/* Polaroid / beyaz çerçeve ve gölge etkisi (arka planda görseldeki gibi durması için) */
+.hero-image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.05);
+  transform: rotate(3deg); /* Arka plandaki beyaz kartı hafif eğik yapıyoruz */
+  z-index: 0;
+}
+
+.hero-main-video {
+  position: relative;
+  z-index: 1; /* Videoyu arka plandaki beyaz kartın üstüne alıyoruz */
+  width: 85%;
+  height: 100%;
+  object-fit: cover; /* Video kare alana sığacak ama oranını koruyup ortasını gösterecek şekilde cover yapar */
+  border-radius: 15px; /* Dış çerçeveye uyumlu hafif yuvarlatma */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: rotate(
+    -2deg
+  ); /* Videoyu hafif ters yöne eğiyoruz (görseldeki estetik için) */
+  transition: transform 0.5s ease;
+}
+
+.hero-pause-btn {
+  padding: 0.6rem 1.5rem;
+  background: white;
+  color: var(--primary-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+  margin-right: 20px;
+}
+
+.hero-pause-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Fullscreen ayarları: Dikey videonun ekrana tam sığması için */
+.hero-main-video:fullscreen {
+  object-fit: contain !important;
+  transform: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: #000;
+}
+
+.hero-main-video:-webkit-full-screen {
+  object-fit: contain !important;
+  transform: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: #000;
+}
+
+.hero-main-video:-moz-full-screen {
+  object-fit: contain !important;
+  transform: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: #000;
+}
+
+.hero-image-container:hover .hero-main-video {
+  transform: rotate(-2deg) scale(1.05);
+}
+
+.hero-play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-image-container:hover .hero-play-overlay {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.hero-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1);
+  transform: rotate(-2deg);
+  transition: transform 0.5s ease;
+}
+
+.hero-image-container:hover .hero-main-img {
+  transform: rotate(-2deg) scale(1.05);
+}
+
+.hero-overlay-card {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+.hero-overlay-card i {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  background: rgba(202, 58, 58, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.hero-overlay-card span {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-section {
+    padding: 2.5rem 0 0;
+    min-height: auto;
+  }
+
+  .hero-content {
+    flex-direction: column-reverse; /* Mobilde önce görsel, sonra metin */
+    text-align: center;
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .hero-text-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .highlight-text::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+
+  .hero-visual {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-image-container {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-pause-btn {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-image-container {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero-overlay-card {
+    padding: 0.6rem 1rem;
+    left: -10px;
+    bottom: -15px;
+  }
+}

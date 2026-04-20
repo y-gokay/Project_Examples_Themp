@@ -1,0 +1,180 @@
+/**
+ * Eski admin shell/sidebar stilleri (geriye dönük uyumluluk).
+ * Ana tasarım main.css ve DashboardSidebar bileşeninde.
+ */
+
+.admin-shell {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - var(--header-height));
+  background: var(--bg-page);
+  font-family: inherit;
+}
+
+.admin-sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 12px;
+  gap: 2px;
+  overflow-y: auto;
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  border-right: 1px solid var(--border);
+}
+
+.sidebar-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 10px 6px;
+}
+
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition), color var(--transition);
+}
+
+.sidebar-btn svg {
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.sidebar-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-primary);
+}
+
+.sidebar-btn:hover svg {
+  opacity: 1;
+}
+
+.sidebar-btn.active {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.sidebar-btn.active svg {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.sidebar-btn.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 3px 3px 0;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 10px 0;
+}
+
+.sidebar-quick-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: var(--accent-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.sidebar-quick-btn:hover {
+  background: rgba(37, 99, 235, 0.18);
+  border-color: var(--accent);
+}
+
+.admin-content {
+  flex: 1;
+  padding: 28px 32px;
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+/* Form responsive */
+.formrespon {
+  width: 100%;
+  max-width: 520px;
+}
+
+@media (max-width: 768px) {
+  .admin-shell {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    position: static;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 12px;
+    gap: 6px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-section-label {
+    display: none;
+  }
+
+  .sidebar-btn,
+  .sidebar-quick-btn {
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 100px;
+    font-size: 12px;
+    padding: 8px 10px;
+    justify-content: center;
+  }
+
+  .sidebar-btn::before {
+    display: none;
+  }
+
+  .sidebar-divider {
+    display: none;
+  }
+
+  .admin-content {
+    padding: 16px 20px;
+  }
+
+  .formrespon {
+    width: 100% !important;
+  }
+}

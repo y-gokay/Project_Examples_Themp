@@ -1,0 +1,99 @@
+.titlee {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+/* Carousel Fix */
+.carousel-container {
+    width: 100%;
+    padding: 2rem 0; /* Ensures hover effects and cards do not clip top/bottom */
+}
+
+.titlee::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 4px;
+    background: var(--accent-color, #ca3a3a);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* Container spacing */
+.section-container {
+    padding: 3rem 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Modern Card Styles */
+.modern-card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+    cursor: pointer;
+    width: 100%;
+}
+
+.modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.modern-card-img-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.modern-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.modern-card:hover .modern-card-img {
+    transform: scale(1.05);
+}
+
+.modern-card-body {
+    padding: 1.25rem;
+}
+
+.modern-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.modern-card-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-author {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-style: italic;
+}
