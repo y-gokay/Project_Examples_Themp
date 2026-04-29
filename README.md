@@ -1,23 +1,23 @@
-# All Jobs — Proje Portföyü
+# Proje Portföyü
 
-Bu repo, farklı kurumlar için geliştirdiğim web uygulamalarını bir arada barındırır. Her proje bağımsız olarak çalışabilir; mock modu sayesinde backend bağlantısı olmadan da demo olarak incelenebilir.
+Bu repo, farklı kurumlar için geliştirdiğim bazı web uygulamalarını bir arada barındırır. Her proje bağımsız olarak çalışabilir; mock modu sayesinde backend bağlantısı olmadan da demo olarak incelenebilir.
 
 ---
 
 ## Projeler
 
-| Proje                                                                 | Teknoloji                                                     | Açıklama                                        |
-| --------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------------- |
-| [Gençlik Merkezi](./Gençlik%20Merkezi/)                               | React 18 + Vite + Redux                                       | Belediye gençlik merkezi kullanıcı uygulaması   |
-| [Gençlik Merkezi Admin Panel](./Gençlik%20Merkezi%20Admin%20Panel/)   | React 18 + Vite + Redux                                       | Gençlik merkezi yönetim paneli                  |
-| [Kafe Menü](./Kafe%20Menü/)                                           | React 19 + Vite + TypeScript + Zustand                        | QR kod ile erişilebilen dijital kafe menüsü     |
-| [Kafe Menü Admin Panel](./Kafe%20Menü%20Admin%20Panel/)               | React 19 + Vite + TypeScript                                  | Kafe menü yönetim paneli                        |
-| [Kreş](./Kreş/)                                                       | Next.js + React                                               | Çocuk gelişim merkezi tanıtım ve başvuru sitesi |
-| [Kreş Admin Panel](./Kreş%20Admin%20Panel/)                           | React 18 + Vite                                               | Çocuk gelişim merkezi yönetim paneli            |
-| [Psikolog Randevu](./Psikolog%20Randevu/)                             | React 19 + Vite (frontend) / Express 5 + PostgreSQL (backend) | Psikolog randevu yönetim sistemi                |
-| [Rezervasyon](./Rezervasyon/)                                         | React 19 + Vite + Redux                                       | Salon/etkinlik rezervasyon sistemi              |
-| [İstihdam Merkezi](./İstihdam%20Merkezi/)                             | React 19 + Vite + Redux                                       | İş ilanı ve başvuru platformu                   |
-| [İstihdam Merkezi Admin Panel](./İstihdam%20Merkezi%20Admin%20Panel/) | React 19 + Vite                                               | İstihdam merkezi yönetim paneli                 |
+| Proje                                                           | Teknoloji                                                     | Açıklama                                        |
+| --------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------------- |
+| [Gençlik Merkezi](./genclik_merkezi/)                           | React 18 + Vite + Redux                                       | Belediye gençlik merkezi kullanıcı uygulaması   |
+| [Gençlik Merkezi Admin Panel](./genclik_merkezi_admin_panel/)   | React 18 + Vite + Redux                                       | Gençlik merkezi yönetim paneli                  |
+| [Kafe Menü](./kafe_menu/)                                       | React 19 + Vite + TypeScript + Zustand                        | QR kod ile erişilebilen dijital kafe menüsü     |
+| [Kafe Menü Admin Panel](./kafe_menu_admin_panel/)               | React 19 + Vite + TypeScript                                  | Kafe menü yönetim paneli                        |
+| [Kreş](./cocuk_gelisim_merkezi/)                                | Next.js + React                                               | Çocuk gelişim merkezi tanıtım ve başvuru sitesi |
+| [Kreş Admin Panel](./cocuk_gelisim_merkezi_admin_panel/)        | React 18 + Vite                                               | Çocuk gelişim merkezi yönetim paneli            |
+| [Psikolog Randevu](./psikolog_randevu/)                         | React 19 + Vite (frontend) / Express 5 + PostgreSQL (backend) | Psikolog randevu yönetim sistemi                |
+| [Rezervasyon](./rezervasyon/)                                   | React 19 + Vite + Redux                                       | Salon/etkinlik rezervasyon sistemi              |
+| [İstihdam Merkezi](./istihdam_merkezi/)                         | React 19 + Vite + Redux                                       | İş ilanı ve başvuru platformu                   |
+| [İstihdam Merkezi Admin Panel](./istihdam_merkezi_admin_panel/) | React 19 + Vite                                               | İstihdam merkezi yönetim paneli                 |
 
 ---
 
@@ -41,7 +41,7 @@ Tarayıcıda `http://localhost:5173` adresini aç — uygulama demo verileriyle 
 Bu proje Express.js + PostgreSQL backend'i içerir. Backend'i Docker ile ayağa kaldırmak için:
 
 ```bash
-cd "Psikolog Randevu/backend"
+cd psikolog_randevu/backend
 cp .env.example .env
 # .env dosyasını açıp şifreleri değiştir
 docker compose up -d
@@ -62,19 +62,19 @@ Demo hesaplar:
 ## Proje Yapısı
 
 ```
-All_Jobs/
-├── Gençlik Merkezi/
-├── Gençlik Merkezi Admin Panel/
-├── Kafe Menü/
-├── Kafe Menü Admin Panel/
-├── Çocuk Gelişim Merkezi/
-├── Çocuk Gelişim Merkezi Admin Panel/
-├── Psikolog Randevu/
+Project_Examples_Themp/
+├── genclik_merkezi/
+├── genclik_merkezi_admin_panel/
+├── kafe_menu/
+├── kafe_menu_admin_panel/
+├── cocuk_gelisim_merkezi/
+├── cocuk_gelisim_merkezi_admin_panel/
+├── psikolog_randevu/
 │   ├── frontend/
 │   └── backend/
-├── Rezervasyon/
-├── İstihdam Merkezi/
-└── İstihdam Merkezi Admin Panel/
+├── rezervasyon/
+├── istihdam_merkezi/
+└── istihdam_merkezi_admin_panel/
 ```
 
 ---
